@@ -5,4 +5,5 @@ T = int(input())
 for _ in range(T):
     temp = input()
     print("Pairs for " + temp + ": " + s[temp])
-    
+
+# ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
