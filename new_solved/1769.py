@@ -10,6 +10,7 @@ while len(n) > 1:
     for i in n:
         try: c[i] += 1
         except: c[i] = 1
+    # try - catch를 이용한 개수 세기 방법
     
     result = 0
     for i in c:
