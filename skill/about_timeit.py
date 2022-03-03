@@ -5,6 +5,8 @@
     해당 함수의 실행에 걸리는 시간을 반환한다.
 
     timeit("함수", number=해당 함수의 시행횟수)
+
+    https://docs.python.org/ko/3/library/timeit.html
 """
 
 import timeit as t
