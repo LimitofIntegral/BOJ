@@ -7,6 +7,8 @@
     에 대하여
 
     dis.dis(myfunc)를 사용해 역 어셈블리를 보일 수 있다.    
+
+    https://docs.python.org/ko/3.8/library/dis.html
 """
 
 import dis
