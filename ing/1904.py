@@ -1,33 +1,43 @@
-def fact(n):
-    if n == 1:
-        return 1
-    else:
-        res = 1
-        while n != 1:
-            res *= n
-            n -= 1
-        
-        return res
-
-f = [1]
-for i in range(0, 1000001):
-    f += [f[i] * (i + 2)]
-
-def calc(n, m):
-    if n == 0 or m == 0:
-        return 1
-    else:
-        res = (fact(n + m) / fact(n)) / fact(m)
-        return res
-
-
 n = int(input())
 
-arr = [(n - i * 2, i) for i in range(n // 2 + 1)]
+d = [0] * (n + 1)
 
-res = 0
+d[1] = 1
 
-for i in arr:
-    res += calc(i[0], i[1])
+for i in range(2, n + 1):
+    d[i] = d[i - 1] + i // 2
 
-print(int(res))
+print(d[n] % 15746)
+print(d)
+"""
+
+
+    시작은 1
+
+    다음은 11 또는 00
+
+    그 다음은 111 또는 001 100
+
+    그 다음은 1111 또는 1001 0011 1100 또는 0000
+
+    11111 / 11001 / 10011, 00111 / 11100 / 10000, 00001
+
+
+    111111 / 111001, 110011, 100111, 001111, 111100 / 110000, 100001, 000011 / 000000
+
+
+    1 = 1
+
+    2 = 1 + 1               +1
+
+    3 = 1 + 2               +1
+
+    4 = 1 + 3 + 1           +2
+
+    5 = 1 + 4 + 2           +2
+
+    6 = 1 + 5 + 3 + 1       +3
+
+    7 = 1 + 6 + 4 + 2       +3
+
+"""
