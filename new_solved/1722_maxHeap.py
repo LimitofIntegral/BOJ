@@ -8,9 +8,9 @@ for _ in range(int(input())):
     x = int(input())
 
     if x:
-        h.heappush(heap, x)
+        h.heappush(heap, -x)
     else:
         if heap:
-            print(h.heappop(heap))
+            print(-h.heappop(heap))
         else:
             print(0)
