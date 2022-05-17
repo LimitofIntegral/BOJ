@@ -15,7 +15,6 @@ def prim(start):
             visited[to] = 0
             mst.append(to)
             total += w
-
             for i in graph[to]:
                 if visited[i[1]]:
                     h.heappush(task, i)
