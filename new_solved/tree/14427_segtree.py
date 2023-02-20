@@ -5,20 +5,22 @@ input = sys.stdin.readline
 def init(l, r, node):
     if l == r:
         tree[node] = [l + 1, arr[l]]
-        return
+        return tree[node]
     else:
         m = (l + r) // 2
-        init(l, m, node * 2)
-        init(m + 1, r, node * 2 + 1)
-        if tree[node * 2][1] < tree[node * 2 + 1][1]:
-            tree[node] = tree[node * 2]
-        elif tree[node * 2][1] == tree[node * 2 + 1][1]:
-            if tree[node * 2][0] <= tree[node * 2 + 1][0]:
-                tree[node] = tree[node * 2]
+        left = init(l, m, node * 2)
+        right = init(m + 1, r, node * 2 + 1)
+        if left[1] < right[1]:
+            tree[node] = left
+        elif left[1] == right[1]:
+            if left[0] <= right[0]:
+                tree[node] = left
             else:
-                tree[node] = tree[node * 2 + 1]
+                tree[node] = right
         else:
-            tree[node] = tree[node * 2 + 1]
+            tree[node] = right
+    
+    return tree[node]
 
 
 def update(l, r, node, i, v):
@@ -29,17 +31,19 @@ def update(l, r, node, i, v):
         return [0, float('inf')]
     else:
         m = (l + r) // 2
-        update(l, m, node * 2, i, v)
-        update(m + 1, r, node * 2 + 1, i, v)
-        if tree[node * 2][1] < tree[node * 2 + 1][1]:
-            tree[node] = tree[node * 2]
-        elif tree[node * 2][1] == tree[node * 2 + 1][1]:
-            if tree[node * 2][0] <= tree[node * 2 + 1][0]:
-                tree[node] = tree[node * 2]
+        left = update(l, m, node * 2, i, v)
+        right = update(m + 1, r, node * 2 + 1, i, v)
+        if left[1] < right[1]:
+            tree[node] = left
+        elif left[1] == right[1]:
+            if left[0] <= right[0]:
+                tree[node] = left
             else:
-                tree[node] = tree[node * 2 + 1]
+                tree[node] = right
         else:
-            tree[node] = tree[node * 2 + 1]
+            tree[node] = right
+    
+    return tree[node]
 
 
 n = int(input())

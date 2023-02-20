@@ -11,16 +11,6 @@ def part(arr, size):
     m = size // 2
 
     if m == 1:
-        cnt = 0
-        for i in range(2):
-            for j in range(2):
-                if not arr[i][j]:
-                    cnt += 1
-
-        if cnt != 3:
-            print(-1)
-            exit()
-
         for i in range(2):
             for j in range(2):
                 if arr[i][j] == 0:
@@ -70,5 +60,5 @@ x, y = map(int, input().split())
 arr[y - 1][x - 1] = -1
 
 result = part(arr, 2 ** n)
-for i in range(1, 2 ** n + 1):
-    print(*result[-i])
+for i in result:
+    print(*i)
